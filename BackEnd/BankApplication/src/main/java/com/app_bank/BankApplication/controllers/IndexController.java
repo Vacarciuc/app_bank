@@ -26,14 +26,14 @@ public class IndexController {
         return getLoginPage;
     }
 
-    //register form
-    @GetMapping("/register")
-    public ModelAndView getRegister(){
-        ModelAndView getRegisterPage=new ModelAndView("register");
-        System.out.println("In register page controller");
-        getRegisterPage.addObject("PageTitle", "Register");
-        return getRegisterPage;
-    }
+//    //register form
+//    @GetMapping("/register")
+//    public ModelAndView getRegister(){
+//        ModelAndView getRegisterPage=new ModelAndView("register");
+//        System.out.println("In register page controller");
+//        getRegisterPage.addObject("PageTitle", "Register");
+//        return getRegisterPage;
+//    }
 
     //error form
     @GetMapping("/error")

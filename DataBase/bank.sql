@@ -1,7 +1,6 @@
-create database app_bank;
+create database bank;
 
-#--Create user table--
-create table users(
+create table user(
 	user_id int not null auto_increment primary key,
 	first_name varchar(50) not null,
 	last_name varchar(50) not null,
@@ -14,7 +13,6 @@ create table users(
 	create_at timestamp,
 	updated_at timestamp default now()
 );
-
 #--Bank accounts table--
 create table accounts(
 	account_id int not null auto_increment primary key,
@@ -25,7 +23,7 @@ create table accounts(
 	balance decimal(18,2) default 0.00,
 	create_at timestamp,
 	update_at timestamp default now(),
-	foreign key(user_id) references users(user_id) on delete cascade
+	foreign key(user_id) references user(user_id) on delete cascade
 );
 
 #--Transaction history table--
@@ -75,7 +73,7 @@ create view v_transaction_history
 		on
 			t.account_id=a.account_id
 		inner join
-			users as u #alias
+			user as u #alias
 		on
 			a.user_id=u.user_id;
     
@@ -100,19 +98,12 @@ create view v_payments
 		on
 			p.account_id=a.account_id
 		inner join
-			users as u
+			user as u
 		on
 			a.user_id=u.user_id;
             
 		#view
         select * from v_transaction_history;
         select * from v_payments;
-        
-        
-        
-        
-        
-        
-        
-        
-        
+select * from user;
+show tables;
